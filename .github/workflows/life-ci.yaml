@@ -21,7 +21,10 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm cache clean --force
+          npm cache verify
 
       - name: Build project
         run: npm run build
