@@ -23,13 +23,20 @@ const useGridController = defineStore("gridController", () => {
   }
 
   function _getAliveNeighbours(row, column) {
-    const aliveNeighbours = [
-      ...grid.value[row - 1].slice(column - 1, column + 2),
-      ...[grid.value[row][column - 1], grid.value[row][column + 1]],
-      ...grid.value[row + 1].slice(column - 1, column + 2),
-    ]
+    if (
+      row - 1 >= 0 &&
+      row + 1 < gridHeight.value &&
+      column - 1 >= 0 &&
+      column + 1 < gridWidth.value
+    ) {
+      const aliveNeighbours = [
+        ...grid.value[row - 1].slice(column - 1, column + 2),
+        ...[grid.value[row][column - 1], grid.value[row][column + 1]],
+        ...grid.value[row + 1].slice(column - 1, column + 2),
+      ]
 
-    return aliveNeighbours.filter((value) => value === true).length
+      return aliveNeighbours.filter((value) => value === true).length
+    }
   }
 
   function updateGrid() {}
