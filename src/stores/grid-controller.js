@@ -22,7 +22,17 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  function _getNeighbours(row, column) {}
+  function _getAliveNeighbours(row, column) {
+    const aliveNeighbours = [
+      ...grid.value[row - 1].slice(column - 1, column + 2),
+      ...[grid.value[row][column - 1], grid.value[row][column + 1]],
+      ...grid.value[row + 1].slice(column - 1, column + 2),
+    ]
+
+    console.log(aliveNeighbours)
+
+    return aliveNeighbours
+  }
 
   function updateGrid() {}
 
@@ -34,7 +44,7 @@ const useGridController = defineStore("gridController", () => {
     gridHeight,
     gridWidth,
     buildGrid,
-    _getNeighbours,
+    _getAliveNeighbours,
     updateGrid,
   }
 })
