@@ -6,8 +6,8 @@ const useGridController = defineStore("gridController", () => {
   const interval = ref(0)
   const speed = ref(500)
 
-  const gridHeight = ref(20)
-  const gridWidth = ref(20)
+  const gridHeight = ref(25)
+  const gridWidth = ref(25)
 
   const grid = ref([])
 
