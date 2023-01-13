@@ -2,11 +2,12 @@ import { defineStore } from "pinia"
 import { ref, computed } from "vue"
 
 const useController = defineStore("controller", () => {
-  const height = ref(5)
+  const height = ref(10)
   const width = ref(10)
 
   const line = computed(() => {
     const line = []
+
     line.length = width.value
     line.fill(0)
 
