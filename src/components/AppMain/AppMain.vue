@@ -7,8 +7,7 @@
         v-for="(cell, cellIndex) in row"
         :key="cellIndex"
         :is-alive="cell"
-        @click="$emit('toggleCell', rowIndex, cellIndex)">
-      </AppMainCell>
+        @click="$emit('toggleCell', rowIndex, cellIndex)" />
     </AppMainRow>
   </main>
 </template>
