@@ -22,7 +22,7 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  function _getAliveNeighbours(row, column) {
+  function _countAliveNeighbours(row, column) {
     if (
       row - 1 >= 0 &&
       row + 1 < gridHeight.value &&
@@ -39,7 +39,27 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  function updateGrid() {}
+  function updateGrid(grid) {
+    for (let row = 0; row <= gridHeight.value; row++) {
+      for (let column = 0; column <= gridWidth.value; column++) {
+        const aliveNeighbours = _countAliveNeighbours(row, column)
+
+        if (grid[row][column]) {
+          if (aliveNeighbours === 2 || aliveNeighbours === 3) {
+            grid.value[row][column] = true
+          } else {
+            grid.value[row][column] = false
+          }
+        } else {
+          if (aliveNeighbours === 3) {
+            grid.value[row][column] = true
+          } else {
+            grid.value[row][column] = false
+          }
+        }
+      }
+    }
+  }
 
   return {
     isRunning,
@@ -49,7 +69,7 @@ const useGridController = defineStore("gridController", () => {
     gridHeight,
     gridWidth,
     buildGrid,
-    _getAliveNeighbours,
+    _countAliveNeighbours,
     updateGrid,
   }
 })
