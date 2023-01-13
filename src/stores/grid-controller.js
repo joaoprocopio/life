@@ -12,7 +12,7 @@ const useGridController = defineStore("gridController", () => {
       const arr = new Array()
 
       arr.length = gridWidth.value
-      arr.fill(0)
+      arr.fill(false)
 
       grid.value.push(arr)
     }
