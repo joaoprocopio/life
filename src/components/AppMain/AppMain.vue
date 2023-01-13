@@ -1,20 +1,20 @@
 <template>
   <table>
-    <AppRow
+    <AppMainRow
       v-for="(row, rowIndex) in $gridController.grid"
       :key="rowIndex">
-      <AppCell
+      <AppMainCell
         v-for="(cell, cellIndex) in row"
         :key="cellIndex"
         :is-alive="cell"
         @click="toggleCell(rowIndex, cellIndex)">
-      </AppCell>
-    </AppRow>
+      </AppMainCell>
+    </AppMainRow>
   </table>
 </template>
 
 <script setup>
-  import { AppCell, AppRow } from "~/components"
+  import { AppMainCell, AppMainRow } from "~/components"
   import { onMounted } from "vue"
   import { useGridController } from "~/stores"
 

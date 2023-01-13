@@ -1,3 +1,3 @@
-export * from "./AppCell"
 export * from "./AppMain"
-export * from "./AppRow"
+export * from "./AppMainCell"
+export * from "./AppMainRow"
