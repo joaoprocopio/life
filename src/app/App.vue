@@ -1,9 +1,13 @@
 <template>
-  <AppGrid />
+  <div id="__layout">
+    <AppHeader />
+    <AppMain />
+    <AppFooter />
+  </div>
 </template>
 
 <script setup>
-  import { AppGrid } from "~/components"
+  import { AppMain } from "~/components"
 </script>
 
 <style>
