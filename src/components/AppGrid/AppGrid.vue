@@ -16,11 +16,16 @@
 
 <script setup>
   import { AppCell, AppRow } from "~/components"
+  import { onMounted } from "vue"
   import { useController } from "~/stores"
+
+  const $controller = useController()
 
   const setAlive = (row, cell) => {
     $controller.grid[row][cell] = 1
   }
 
-  const $controller = useController()
+  onMounted(() => {
+    $controller.buildGrid()
+  })
 </script>
