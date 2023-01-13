@@ -29,9 +29,7 @@ const useGridController = defineStore("gridController", () => {
       ...grid.value[row + 1].slice(column - 1, column + 2),
     ]
 
-    console.log(aliveNeighbours)
-
-    return aliveNeighbours
+    return aliveNeighbours.filter((value) => value === true).length
   }
 
   function updateGrid() {}
