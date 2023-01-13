@@ -1,31 +1,28 @@
 <template>
   <main class="app-main">
     <AppMainRow
-      v-for="(row, rowIndex) in $gridController.grid"
+      v-for="(row, rowIndex) in $props.grid"
       :key="rowIndex">
       <AppMainCell
-        v-for="(cell, cellIndex) in row"
-        :key="cellIndex"
+        v-for="(cell, columnIndex) in row"
+        :key="columnIndex"
         :is-alive="cell"
-        @click="toggleCell(rowIndex, cellIndex)">
-      </AppMainCell>
+        @click="$emit('toggleCell', rowIndex, columnIndex)" />
     </AppMainRow>
   </main>
 </template>
 
 <script setup>
   import { AppMainCell, AppMainRow } from "~/components"
-  import { onMounted } from "vue"
-  import { useGridController } from "~/stores"
 
-  const $gridController = useGridController()
+  const $emit = defineEmits(["toggleCell"])
 
-  const toggleCell = (row, cell) => {
-    $gridController.grid[row][cell] = !$gridController.grid[row][cell]
-  }
-
-  onMounted(() => {
-    $gridController.buildGrid()
+  const $props = defineProps({
+    grid: {
+      type: Array,
+      default: () => [],
+      required: true,
+    },
   })
 </script>
 

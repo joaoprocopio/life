@@ -1,23 +1,17 @@
 <template>
   <footer>
-    <button @click="toggleInterval">toggle game</button>
+    <button
+      @click="$emit('toggleInterval')"
+      v-text="$props.isRunning ? 'stop' : 'start'" />
   </footer>
 </template>
 
 <script setup>
-  import { useGridController } from "~/stores"
-
-  const $gridController = useGridController()
-
-  const toggleInterval = () => {
-    if (!$gridController.isRunning) {
-      $gridController.isRunning = true
-      $gridController.interval = setInterval(() => {
-        $gridController.updateGrid()
-      }, $gridController.speed)
-    } else {
-      $gridController.isRunning = false
-      clearInterval($gridController.interval)
-    }
-  }
+  const $emit = defineEmits(["toggleInterval"])
+  const $props = defineProps({
+    isRunning: {
+      type: Boolean,
+      default: () => false,
+    },
+  })
 </script>
