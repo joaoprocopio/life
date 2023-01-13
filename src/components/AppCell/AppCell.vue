@@ -20,12 +20,12 @@
 <style>
   .app-cell {
     border: 2px solid black;
-    height: 48px;
-    width: 48px;
+    height: 32px;
+    width: 32px;
     margin: 2px;
   }
 
   .app-cell--alive {
-    border: 2px solid blue;
+    background-color: black;
   }
 </style>
