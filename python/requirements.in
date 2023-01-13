@@ -1,6 +1,2 @@
-flake8
-black
-numpy
 pygame
-pip-tools
-isort
+numpy
