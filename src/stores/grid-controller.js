@@ -2,23 +2,23 @@ import { defineStore } from "pinia"
 import { ref } from "vue"
 
 const useGridController = defineStore("gridController", () => {
-  const height = ref(20)
-  const width = ref(20)
-
   const grid = ref([])
 
+  const gridHeight = ref(20)
+  const gridWidth = ref(20)
+
   function buildGrid() {
-    for (let i = 1; i <= height.value; i++) {
+    for (let i = 1; i <= gridHeight.value; i++) {
       const arr = new Array()
 
-      arr.length = width.value
+      arr.length = gridWidth.value
       arr.fill(0)
 
       grid.value.push(arr)
     }
   }
 
-  return { height, width, grid, buildGrid }
+  return { grid, gridHeight, gridWidth, buildGrid }
 })
 
 export { useGridController }

@@ -11,7 +11,6 @@
       </AppCell>
     </AppRow>
   </table>
-  <div>{{ $controller.grid }}</div>
 </template>
 
 <script setup>
