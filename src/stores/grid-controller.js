@@ -7,7 +7,7 @@ const useGridController = defineStore("gridController", () => {
   const speed = ref(500)
 
   const gridHeight = ref(25)
-  const gridWidth = ref(25)
+  const gridWidth = ref(10)
 
   const grid = ref([])
 
@@ -39,11 +39,10 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  function updateGrid(grid) {
-    for (let row = 0; row <= gridHeight.value; row++) {
-      for (let column = 0; column <= gridWidth.value; column++) {
+  function updateGrid() {
+    for (let row = 0; row < gridHeight.value; row++) {
+      for (let column = 0; column < gridWidth.value; column++) {
         const aliveNeighbours = _countAliveNeighbours(row, column)
-
         if (grid[row][column]) {
           if (aliveNeighbours === 2 || aliveNeighbours === 3) {
             grid.value[row][column] = true
