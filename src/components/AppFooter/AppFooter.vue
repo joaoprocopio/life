@@ -1,3 +1,5 @@
 <template>
-  <footer>footer</footer>
+  <footer>
+    <button>start</button>
+  </footer>
 </template>
