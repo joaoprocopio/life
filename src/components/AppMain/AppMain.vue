@@ -4,10 +4,10 @@
       v-for="(row, rowIndex) in $props.grid"
       :key="rowIndex">
       <AppMainCell
-        v-for="(cell, cellIndex) in row"
-        :key="cellIndex"
+        v-for="(cell, columnIndex) in row"
+        :key="columnIndex"
         :is-alive="cell"
-        @click="$emit('toggleCell', rowIndex, cellIndex)" />
+        @click="$emit('toggleCell', rowIndex, columnIndex)" />
     </AppMainRow>
   </main>
 </template>
