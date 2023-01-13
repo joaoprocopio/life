@@ -18,7 +18,9 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  return { grid, gridHeight, gridWidth, buildGrid }
+  function updateGrid() {}
+
+  return { grid, gridHeight, gridWidth, buildGrid, updateGrid }
 })
 
 export { useGridController }
