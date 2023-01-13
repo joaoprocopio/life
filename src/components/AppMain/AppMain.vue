@@ -15,7 +15,6 @@
 
 <script setup>
   import { AppMainCell, AppMainRow } from "~/components"
-  import { onMounted } from "vue"
   import { useGridController } from "~/stores"
 
   const $gridController = useGridController()
@@ -23,10 +22,6 @@
   const toggleCell = (row, cell) => {
     $gridController.grid[row][cell] = !$gridController.grid[row][cell]
   }
-
-  onMounted(() => {
-    $gridController.buildGrid()
-  })
 </script>
 
 <style>
