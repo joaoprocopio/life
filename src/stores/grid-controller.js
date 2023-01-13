@@ -22,6 +22,8 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
+  function _getNeighbours(row, column) {}
+
   function updateGrid() {}
 
   return {
@@ -32,6 +34,7 @@ const useGridController = defineStore("gridController", () => {
     gridHeight,
     gridWidth,
     buildGrid,
+    _getNeighbours,
     updateGrid,
   }
 })
