@@ -1,5 +1,5 @@
 <template>
-  <td
+  <div
     :class="{
       'app-cell': true,
       'app-cell--alive': $props.isAlive,
