@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <main class="app-main">
     <AppMainRow
       v-for="(row, rowIndex) in $gridController.grid"
       :key="rowIndex">
@@ -10,7 +10,7 @@
         @click="toggleCell(rowIndex, cellIndex)">
       </AppMainCell>
     </AppMainRow>
-  </table>
+  </main>
 </template>
 
 <script setup>
@@ -28,3 +28,10 @@
     $gridController.buildGrid()
   })
 </script>
+
+<style>
+  .app-main {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

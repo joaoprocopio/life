@@ -1,5 +1,11 @@
 <template>
-  <tr>
+  <div class="app-main-row">
     <slot></slot>
-  </tr>
+  </div>
 </template>
+
+<style>
+  .app-main-row {
+    display: flex;
+  }
+</style>
