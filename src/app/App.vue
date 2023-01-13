@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-  import { AppMain } from "~/components"
+  import { AppFooter, AppHeader, AppMain } from "~/components"
 </script>
 
 <style>
