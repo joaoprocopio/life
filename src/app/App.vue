@@ -4,7 +4,9 @@
     <AppMain
       :grid="$gridController.grid"
       @toggle-cell="toggleCell" />
-    <AppFooter @toggle-interval="toggleInterval" />
+    <AppFooter
+      :is-running="$gridController.isRunning"
+      @toggle-interval="toggleInterval" />
   </div>
 </template>
 
