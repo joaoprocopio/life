@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import { ref } from "vue"
 
-const useController = defineStore("controller", () => {
+const useGridController = defineStore("gridController", () => {
   const height = ref(20)
   const width = ref(20)
 
@@ -21,4 +21,4 @@ const useController = defineStore("controller", () => {
   return { height, width, grid, buildGrid }
 })
 
-export { useController }
+export { useGridController }

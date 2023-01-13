@@ -17,9 +17,9 @@
 <script setup>
   import { AppCell, AppRow } from "~/components"
   import { onMounted } from "vue"
-  import { useController } from "~/stores"
+  import { useGridController } from "~/stores"
 
-  const $controller = useController()
+  const $controller = useGridController()
 
   const setAlive = (row, cell) => {
     $controller.grid[row][cell] = 1
