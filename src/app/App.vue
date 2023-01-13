@@ -1,7 +1,9 @@
 <template>
   <div id="__layout">
     <AppHeader />
-    <AppMain />
+    <AppMain
+      :grid="$gridController.grid"
+      @toggle-cell="toggleCell" />
     <AppFooter @toggle-interval="toggleInterval" />
   </div>
 </template>
@@ -27,6 +29,10 @@
       $gridController.isRunning = false
       clearInterval($gridController.interval)
     }
+  }
+
+  const toggleCell = (row, cell) => {
+    $gridController.grid[row][cell] = !$gridController.grid[row][cell]
   }
 </script>
 

@@ -1,13 +1,13 @@
 <template>
   <main class="app-main">
     <AppMainRow
-      v-for="(row, rowIndex) in $gridController.grid"
+      v-for="(row, rowIndex) in $props.grid"
       :key="rowIndex">
       <AppMainCell
         v-for="(cell, cellIndex) in row"
         :key="cellIndex"
         :is-alive="cell"
-        @click="toggleCell(rowIndex, cellIndex)">
+        @click="$emit('toggleCell', rowIndex, cellIndex)">
       </AppMainCell>
     </AppMainRow>
   </main>
@@ -15,13 +15,16 @@
 
 <script setup>
   import { AppMainCell, AppMainRow } from "~/components"
-  import { useGridController } from "~/stores"
 
-  const $gridController = useGridController()
+  const $emit = defineEmits(["toggleCell"])
 
-  const toggleCell = (row, cell) => {
-    $gridController.grid[row][cell] = !$gridController.grid[row][cell]
-  }
+  const $props = defineProps({
+    grid: {
+      type: Array,
+      default: () => [],
+      required: true,
+    },
+  })
 </script>
 
 <style>
