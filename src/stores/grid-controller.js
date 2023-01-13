@@ -11,8 +11,6 @@ const useGridController = defineStore("gridController", () => {
 
   const grid = ref([])
 
-  const grid = ref([])
-
   function buildGrid() {
     for (let i = 1; i <= gridHeight.value; i++) {
       const arr = new Array()
