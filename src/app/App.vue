@@ -31,8 +31,8 @@
     }
   }
 
-  const toggleCell = (row, cell) => {
-    $gridController.grid[row][cell] = !$gridController.grid[row][cell]
+  const toggleCell = (row, column) => {
+    $gridController.grid[row][column] = !$gridController.grid[row][column]
   }
 </script>
 
