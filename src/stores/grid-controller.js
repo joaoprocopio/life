@@ -23,7 +23,7 @@ const useGridController = defineStore("gridController", () => {
   }
 
   function _countAliveNeighbors(row, column) {
-    const delta_coord = [
+    const neighborsAvailablePositions = [
       [-1, -1],
       [-1, 0],
       [-1, 1],
@@ -33,25 +33,23 @@ const useGridController = defineStore("gridController", () => {
       [1, 0],
       [1, 1],
     ]
-    let coord_neighbors = []
+    const neighborsAvailable = []
 
-    for (let index = 0; index < delta_coord.length; index++) {
-      coord_neighbors.push([
-        row + delta_coord[index][0],
-        column + delta_coord[index][1],
+    for (let index = 0; index < neighborsAvailablePositions.length; index++) {
+      neighborsAvailable.push([
+        row + neighborsAvailablePositions[index][0],
+        column + neighborsAvailablePositions[index][1],
       ])
     }
 
-    let coord_neighbors_alive = coord_neighbors.filter(
-      (e) =>
-        e[0] >= 0 &&
-        e[0] < rows.value &&
-        e[1] >= 0 &&
-        e[1] < columns.value &&
-        grid.value[e[0]][e[1]] == 1
-    )
-
-    return coord_neighbors_alive.length
+    return neighborsAvailable.filter(
+      (neighbor) =>
+        neighbor[0] >= 0 &&
+        neighbor[0] < rows.value &&
+        neighbor[1] >= 0 &&
+        neighbor[1] < columns.value &&
+        grid.value[neighbor[0]][neighbor[1]] == true
+    ).length
   }
 
   function updateGrid() {
