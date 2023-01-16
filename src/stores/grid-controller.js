@@ -22,37 +22,56 @@ const useGridController = defineStore("gridController", () => {
     }
   }
 
-  function _countAliveNeighbours(row, column) {
-    if (
-      row - 1 >= 0 &&
-      row + 1 < gridHeight.value &&
-      column - 1 >= 0 &&
-      column + 1 < gridWidth.value
-    ) {
-      const aliveNeighbours = [
-        ...grid.value[row - 1].slice(column - 1, column + 2),
-        ...[grid.value[row][column - 1], grid.value[row][column + 1]],
-        ...grid.value[row + 1].slice(column - 1, column + 2),
-      ]
+  function _countAliveNeighbors(row, column) {
+    const [rows, columns] = [gridHeight.value, gridWidth.value]
+    const delta_coord = [
+      [-1, -1],
+      [-1, 0],
+      [-1, 1],
+      [0, -1],
+      [0, 1],
+      [1, -1],
+      [1, 0],
+      [1, 1],
+    ]
+    let coord_neighbors = []
 
-      return aliveNeighbours.filter((value) => value === true).length
+    for (let index = 0; index < delta_coord.length; index++) {
+      coord_neighbors.push([
+        row + delta_coord[index][0],
+        column + delta_coord[index][1],
+      ])
     }
+
+    let coord_neighbors_alive = coord_neighbors.filter(
+      (e) =>
+        e[0] >= 0 &&
+        e[0] < rows &&
+        e[1] >= 0 &&
+        e[1] < columns &&
+        grid.value[e[0]][e[1]] == 1
+    )
+
+    return coord_neighbors_alive.length
   }
 
   function updateGrid() {
-    const updatedGrid = [...grid.value]
+    const [rows, columns] = [gridHeight.value, gridWidth.value]
 
-    for (let row = 0; row < gridHeight.value; row++) {
-      for (let column = 0; column < gridWidth.value; column++) {
-        const aliveNeighbours = _countAliveNeighbours(row, column)
-        if (updatedGrid[row][column]) {
-          if (aliveNeighbours === 2 || aliveNeighbours === 3) {
+    let updatedGrid = [...grid.value]
+
+    for (let row = 0; row < rows; row++) {
+      for (let column = 0; column < columns; column++) {
+        let neighborsAlive = _countAliveNeighbors(row, column)
+
+        if (grid.value[row][column]) {
+          if (neighborsAlive == 2 || neighborsAlive == 3) {
             updatedGrid[row][column] = true
           } else {
             updatedGrid[row][column] = false
           }
         } else {
-          if (aliveNeighbours === 3) {
+          if (neighborsAlive == 3) {
             updatedGrid[row][column] = true
           } else {
             updatedGrid[row][column] = false
@@ -72,7 +91,7 @@ const useGridController = defineStore("gridController", () => {
     gridHeight,
     gridWidth,
     buildGrid,
-    _countAliveNeighbours,
+    _countAliveNeighbors,
     updateGrid,
   }
 })
