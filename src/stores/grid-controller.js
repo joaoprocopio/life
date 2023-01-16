@@ -53,11 +53,11 @@ const useGridController = defineStore("gridController", () => {
   }
 
   function updateGrid() {
-    let updatedGrid = [...grid.value]
+    const updatedGrid = [...grid.value]
 
     for (let row = 0; row < rows.value; row++) {
       for (let column = 0; column < columns.value; column++) {
-        let neighborsAlive = _countAliveNeighbors(row, column)
+        const neighborsAlive = _countAliveNeighbors(row, column)
 
         if (grid.value[row][column]) {
           if (neighborsAlive == 2 || neighborsAlive == 3) {
