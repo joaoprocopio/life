@@ -48,7 +48,7 @@ const useGridController = defineStore("gridController", () => {
         neighbor[0] < rows.value &&
         neighbor[1] >= 0 &&
         neighbor[1] < columns.value &&
-        grid.value[neighbor[0]][neighbor[1]] == true
+        grid.value[neighbor[0]][neighbor[1]] === true
     ).length
   }
 
