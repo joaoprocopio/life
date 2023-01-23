@@ -60,16 +60,14 @@ const useGridController = defineStore("gridController", () => {
         const neighborsAlive = _countAliveNeighbors(row, column)
 
         if (grid.value[row][column]) {
-          if (neighborsAlive == 2 || neighborsAlive == 3) {
-            updatedGrid[row][column] = true
-          } else {
+          if (neighborsAlive < 2 || neighborsAlive > 3) {
             updatedGrid[row][column] = false
+          } else if (2 <= neighborsAlive <= 3) {
+            updatedGrid[row][column] = true
           }
         } else {
-          if (neighborsAlive == 3) {
+          if (neighborsAlive === 3) {
             updatedGrid[row][column] = true
-          } else {
-            updatedGrid[row][column] = false
           }
         }
       }
