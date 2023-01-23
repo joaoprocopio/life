@@ -53,7 +53,7 @@ const useGridController = defineStore("gridController", () => {
   }
 
   function updateGrid() {
-    const updatedGrid = [...grid.value]
+    const updatedGrid = JSON.parse(JSON.stringify(grid.value))
 
     for (let row = 0; row < rows.value; row++) {
       for (let column = 0; column < columns.value; column++) {
