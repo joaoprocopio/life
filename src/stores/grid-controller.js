@@ -13,8 +13,7 @@ const useGridController = defineStore("gridController", () => {
 
   function buildGrid() {
     for (let i = 0; i < rows.value; i++) {
-      const arr = new Array(columns.value)
-      arr.fill(false)
+      const arr = new Array(columns.value).fill(false)
       grid.value.push(arr)
     }
   }
