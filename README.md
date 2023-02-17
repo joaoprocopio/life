@@ -18,14 +18,7 @@ os arquivos do projeto estão no diretório `python/`.
 
 ```bash
 cd python/
-pyenv virtualenv 3.10.x life
-```
-
-> NOTA:
-> esse projeto foi feito na versão 3.10 do python,  
-> qualquer versão da 3.10 já funciona
-
-```bash
-pip install -r requirements-dev.txt
-python3 main.py
+poetry install
+poetry shell
+python main.py
 ```
