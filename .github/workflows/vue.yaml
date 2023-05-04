@@ -15,6 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Ter um passo de teste antes do build, caso não passe os testes, não faça o build.
   build:
     runs-on: ubuntu-latest
     steps:
