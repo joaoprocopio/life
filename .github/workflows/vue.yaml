@@ -40,7 +40,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ hashFiles('index.html') }}
             ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
       - name: Install dependencies
         run: yarn install
