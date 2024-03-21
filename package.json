@@ -10,19 +10,19 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "pinia": "^2.0.28",
-    "vue": "^3.2.45"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/test-utils": "^2.2.6",
-    "eslint": "^8.22.0",
-    "eslint-plugin-vue": "^9.3.0",
-    "jsdom": "^20.0.3",
-    "prettier": "^2.7.1",
-    "vite": "^4.0.0",
-    "vitest": "^0.25.6"
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/test-utils": "^2.4.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.2.2",
+    "vitest": "^1.4.0"
   }
 }
